@@ -2,11 +2,11 @@ NAME			=	push_swap
 
 SRC				=	$(wildcard *.c)
 
-LIBFT			=	libft/libft.a
-
 OBJS			=	${SRC:.c=.o}
 
 CC				=	gcc
+
+RM				=	rm -rf
 
 CFLAGS			=	-Wall -Werror -Wextra
 
@@ -14,19 +14,15 @@ CFLAGS			=	-Wall -Werror -Wextra
 					${CC} ${CFLAGS}  -c $< -o ${<:.c=.o}
 
 $(NAME)			:	${OBJS} ${LIBFT}
-						${CC} ${CFLAGS} ${OBJS} -o ${NAME}	$(LIBFT) 
-
-$(LIBFT)		:
-					make -C libft
+						${CC} ${CFLAGS} ${MLX_FLAGS} ${OBJS} -o ${NAME}	$(LIBFT) 
 
 all				:	${NAME}
 
-clean			:
-					make clean -C libft
-					@rm -rf ${OBJS}
+clean			:	
+					${RM} ${OBJS}
 
 fclean			:	clean
-						@rm -rf ${NAME}
+						${RM} ${NAME}
 
 re				:	fclean all
 

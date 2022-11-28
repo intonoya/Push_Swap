@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: intonoya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 18:07:44 by intonoya          #+#    #+#             */
+/*   Updated: 2022/11/28 20:15:34 by intonoya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rr(t_list **list_a, t_list **list_b)
@@ -9,22 +21,22 @@ void	rr(t_list **list_a, t_list **list_b)
 
 void	rra_rrb(t_list **list, int n)
 {
-	t_list	*address;
-	t_list	*i;
-	t_list	*j;
+	t_list	*adress;
+	t_list	*tmp;
+	t_list	*tmp2;
 
 	if (*list)
 	{
-		address = *list;
-		i = *list;
-		while (address->next != NULL)
+		adress = *list;
+		tmp = *list;
+		while (adress->next != NULL)
 		{
-			j = address;
-			address = address->next;
+			tmp2 = adress;
+			adress = adress->next;
 		}
-		j->next = NULL;
-		address->next = i;
-		*list = address;
+		tmp2->next = NULL;
+		adress->next = tmp;
+		*list = adress;
 		if (n == 1)
 			write(1, "rra\n", 4);
 		else if (n == 2)

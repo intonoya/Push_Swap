@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_errors.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: intonoya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 18:11:35 by intonoya          #+#    #+#             */
+/*   Updated: 2022/11/28 20:14:23 by intonoya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    exit_message(char *str)
+void	print_error(void)
 {
-    ft_putstr_fd(str, 1);
-    exit(0);
+	write(2, "Error!\n", 7);
+	exit(1);
 }
 
 void	check(char *str)
@@ -25,25 +37,25 @@ void	check(char *str)
 				&& str[i - 1] == ' ')
 			i++;
 		else
-			exit_message("Error!\n");
+			print_error();
 	}
 }
 
-void    check_doubles(int *args, int arg_len)
+void	check_doubles(int *arr_int, int arr_len)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    while(i < arg_len)
-    {
-        j = i + 1;
-        while (j < arg_len)
-        {
-            if (i != j && args[i] == args[j])
-                exit_message("Dublicated arguments!\n");
-            j++;
-        }
-    }
-    i++;
+	i = 0;
+	while (i < arr_len)
+	{
+		j = i + 1;
+		while (j < arr_len)
+		{
+			if (arr_int[i] == arr_int[j] && i != j)
+				print_error();
+			j++;
+		}
+		i++;
+	}
 }

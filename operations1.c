@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations1.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: intonoya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 18:07:23 by intonoya          #+#    #+#             */
+/*   Updated: 2022/11/28 20:15:13 by intonoya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sa_sb(t_list **list, int i)
@@ -19,62 +31,62 @@ void	sa_sb(t_list **list, int i)
 	}
 }
 
-void	ss(t_list *list_a, t_list *list_b)
+void	ss(t_list *a_list, t_list *b_list)
 {
-	sa_sb(&list_a, 3);
-	sa_sb(&list_b, 3);
+	sa_sb(&a_list, 3);
+	sa_sb(&b_list, 3);
 	write(1, "ss\n", 3);
 }
 
-void	pa(t_list **list_a, t_list **list_b)
+void	pa(t_list **a_list, t_list **b_list)
 {
 	t_list	*push;
 
 	push = NULL;
-	if (*list_b)
+	if (*b_list)
 	{
-		push = *list_b;
-		(*list_b) = (*list_b)->next;
-		push->next = *list_a;
-		*list_a = push;
+		push = *b_list;
+		(*b_list) = (*b_list)->next;
+		push->next = *a_list;
+		*a_list = push;
 		write(1, "pa\n", 3);
 	}
 }
 
-void	pb(t_list **list_a, t_list **list_b)
+void	pb(t_list **a_list, t_list **b_list)
 {
 	t_list	*push;
 
 	push = NULL;
-	if (*list_a)
+	if (*a_list)
 	{
-		push = *list_a;
-		(*list_a) = (*list_a)->next;
-		push->next = *list_b;
-		*list_b = push;
+		push = *a_list;
+		(*a_list) = (*a_list)->next;
+		push->next = *b_list;
+		*b_list = push;
 		write(1, "pb\n", 3);
 	}
 }
 
 void	ra_rb(t_list **list, int i)
 {
-	t_list	*address;
+	t_list	*adress;
 	t_list	*node;
 
-	address = NULL;
+	adress = NULL;
 	node = NULL;
 	if ((*list)->next != NULL)
 	{
-		address = *list;
+		adress = *list;
 		(*list) = (*list)->next;
 		node = *list;
-		if (address)
+		if (adress)
 		{
 			while (node->next != NULL)
 			{
 				node = node->next;
 			}
-			node->next = address;
+			node->next = adress;
 			node->next->next = NULL;
 		}
 		if (i == 1)
