@@ -22,7 +22,7 @@ int	main(int a_nb, char *str)
 		check_doubles(arr_int, mx_len);
 		if (is_sorted(arr_int, mx_len))
 			return (0);
-		arr_to_list(arr_int, mx_len);
+		array_to_list(arr_int, mx_len);
 	}
 	exit(0);
 }

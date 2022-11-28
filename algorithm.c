@@ -10,7 +10,7 @@ void    butterfly(t_list **stack_a, t_list **stack_b, int n)
         if((*stack_a)->index <= count)
         {
             pb(stack_a, stack_b);
-            ra_rab(stack_b, 2);
+            ra_rb(stack_b, 2);
             count++;
         }
         else if ((*stack_a)->index <= count + n)
